@@ -4,6 +4,8 @@
 
 - `>`: Redirecciona la salida a un archivo.
 - `>>`: Añade la salida a un archivo existente.
+- `stdin`: Secuencia de entrada.
+- `stdout`: Secuencia de salida.
 - `cat`: Muestra el contenido de un archivo. Ejemplo: `cat archivo.txt`.
 - `echo`: Muestra texto por pantalla. Ejemplo: `echo "Hola Mundo"`.
 - `tee`: Guarda la salida en un archivo y la muestra por pantalla. Ejemplo: `ls | tee lista.txt`.
@@ -49,9 +51,10 @@ Ejemplo de permisos:
 
 ---
 
-## Gestión de Usuarios
+## Gestión de Usuarios y Grupos
 
 - `useradd`: Crea un nuevo usuario.
+- `groupadd`: Crea un nuevo grupo.
 - `passwd`: Cambia la contraseña de un usuario.
 - `/etc/passwd`: Información de usuarios del sistema.
 - `/etc/shadow`: Información de contraseñas encriptadas.
@@ -82,6 +85,13 @@ Ejemplo de permisos:
 - `more archivo-grande.txt`: Muestra el contenido de un archivo grande página por página.
 - `less archivo-grande.txt`: Permite navegar hacia arriba y abajo en un archivo grande.
 
+### Crear un archivo con múltiples líneas
+
+- `echo "Línea 1" > ejemplo.txt`: Crea archivo ejemplo.txt y le añade una línea.
+- `echo "Línea 2" >> ejemplo.txt`: Añade al archivo ejemplo.txt una línea sin sobreescribir.
+- `echo "Línea 3" >> ejemplo.txt`: Añade al archivo ejemplo.txt una línea sin sobreescribir.
+- `cat ejemplo.txt`: Mostrar el archivo.
+
 ### Ordenar Archivos
 
 - `sort nombres.txt`: Ordena un archivo alfabéticamente.
@@ -107,6 +117,30 @@ Ejemplo de permisos:
 - `jobs`: Lista procesos en segundo plano.
 - `fg %1`: Trae un proceso al primer plano.
 - `bg %1`: Envía un proceso a segundo plano.
+
+### Gestión de Permisos
+
+- `chmod 755 archivo.txt`: Dar permisos de lectura/escritura/ejecución al dueño, y solo lectura a los demás.
+- `chown usuario:grupo archivo.txt`: Cambiar el propietario y grupo de un archivo.
+
+### Ejemplo de Permisos
+
+- `touch archivo.txt`: Crear un archivo.
+- `chmod 644 archivo.txt `: Dar permisos de lectura/escritura al dueño, y solo lectura a los demás.
+- `chown usuario archivo.txt`: Cambiar propietario.
+
+### Comandos de administración
+-	`sudo apt update`: Actualizar paquetes instalados.
+-	`sudo useradd usuario`: Crear un usuario.
+-	`sudo passwd usuario`: Asignar contraseña a un usuario.
+-	`sudo userdel -r usuario`: Eliminar un usuario y su directorio home.
+
+### Estructura de Directorios
+-	`/home`: Directorio de usuarios.
+-	`/etc`: Archivos de configuración del sistema.
+-	`/var`: Archivos variables (logs, bases de datos, etc.)
+-	`/dev`: Dispositivos del sistema.
+
 
 ### Enlaces Simbólicos y Duros
 
@@ -178,8 +212,17 @@ Ejemplo de permisos:
 ### Ordenar y Filtrar Archivos
 
 - `sort archivo.txt > archivo_ordenado.txt`: Ordena un archivo.
+- `sort -n archivo.txt`: Ordena archivo.txt numéricamente.
+- `sort -r archivo.txt`: Ordena archivo.txt en orden inverso.
 - `grep "ERROR" logs.txt > errores.txt`: Filtra líneas con "ERROR".
 - `sort -u archivo.txt > archivo_unico.txt`: Elimina líneas duplicadas.
+
+### Ejemplo de ordenación:
+
+- `echo -e "Juan\nPedro\nAna" > nombres.txt`: Crea un archivo con nombres.
+- `sort nombres.txt`: Ordenar alfabéticamente.
+- `echo -e "10\n5\n20" > numeros.txt`: Ordenar numéricamente.
+- `sort -n numeros.txt`: Ordenar numéricamente.
 
 ### Ver Archivos Grandes
 
